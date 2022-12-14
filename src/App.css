@@ -1,5 +1,7 @@
 .App {
   text-align: center;
+  background-color: rgb(90, 161, 160);
+  
 }
 
 .App-logo {
@@ -35,4 +37,16 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+button {
+  border-radius: 10%;
+  color: firebrick;
+  background-color:yellow;
+  font-family: 'thefont';
+ 
+}
+
+h1 {
+  color: red
 }

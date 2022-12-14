@@ -1,23 +1,30 @@
-import logo from './logo.svg';
 import './App.css';
+import Score from './components/Score';
+import useFetch from './components/useFetch'
 
 function App() {
+
+const {data: Jepordy, loading, error, refetch} = useFetch("https://jservice.io/api/random")
+if(loading) return <h1>LOADING...</h1>
+if(error) console.log(error);
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <h1> Welcome to Jepordy </h1>
+    <h2> Score: </h2>
+    <Score />
+    <h2>Let's Play!</h2>
+    <button>Get Question</button>
+
+     <h2> Category </h2>
+     <h3> Points</h3> 
+
+    <useFetch/>
+
+    <h1>{Jepordy?.setup}: {Jepordy?.delivery}</h1>
+    <h2>Answer:</h2>
+    <button> Click to Reveal Question</button>
     </div>
   );
 }
